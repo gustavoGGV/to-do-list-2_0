@@ -7,3 +7,18 @@ body {
   color: #fff;
   background-color: #4e5283;
 }
+
+.link-button {
+  transition: 100ms;
+  text-decoration: none;
+  color: white;
+  font-size: 175%;
+  /* Boldness */
+  -webkit-text-stroke: 1px;
+}
+
+.link-button:hover {
+  cursor: pointer;
+  color: #b5b2d0;
+  transition: 100ms;
+}

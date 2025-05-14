@@ -1,11 +1,10 @@
 import React from "react";
-import "bootstrap-icons/font/bootstrap-icons.css";
 
-const TaskList = () => {
+const GoalList = () => {
   return (
     <div className="component p-3 rounded-4">
       <div className="d-flex">
-        <h2 className="ms-2 w-100">To-do list:</h2>
+        <h2 className="ms-2 w-100">Goal list:</h2>
         <a className="link-button float-end me-2">
           <i className="bi bi-plus-square"></i>
         </a>
@@ -13,18 +12,14 @@ const TaskList = () => {
       <br />
       <div className="d-flex">
         <input className="ms-2" type="checkbox" />
-        <h3 className="ms-2">Laundry</h3>
+        <h3 className="ms-2">Lose weight</h3>
       </div>
       <div className="d-flex">
         <input className="ms-2" type="checkbox" />
-        <h3 className="ms-2">Walk Fiona</h3>
-      </div>
-      <div className="d-flex">
-        <input className="ms-2" type="checkbox" />
-        <h3 className="ms-2">Watch Flamengo</h3>
+        <h3 className="ms-2">Buy a PS5</h3>
       </div>
     </div>
   );
 };
 
-export default TaskList;
+export default GoalList;
