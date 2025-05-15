@@ -1,5 +1,5 @@
 body {
-  background-color: #eedeff;
+  background-color: #f5eefc;
   color: #4e5283;
 }
 
@@ -17,8 +17,20 @@ body {
   -webkit-text-stroke: 1px;
 }
 
+.trash-can {
+  font-size: 150%;
+  /* Boldness */
+  -webkit-text-stroke: 0.3px;
+}
+
 .link-button:hover {
   cursor: pointer;
   color: #b5b2d0;
   transition: 100ms;
+}
+
+h3 {
+  max-width: 85%;
+  overflow-wrap: break-word; /* Break long words */
+  white-space: normal; /* Alows line breaking */
 }

@@ -12,11 +12,12 @@ const GoalList = () => {
       <br />
       <div className="d-flex">
         <input className="ms-2" type="checkbox" />
-        <h3 className="ms-2">Lose weight</h3>
-      </div>
-      <div className="d-flex">
-        <input className="ms-2" type="checkbox" />
-        <h3 className="ms-2">Buy a PS5</h3>
+        <h3 className="ms-2">
+          AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        </h3>
+        <a className="link-button trash-can float-end ms-2">
+          <i className="bi bi-trash3"></i>
+        </a>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import "bootstrap-icons/font/bootstrap-icons.css";
+import "bootstrap-icons/font/bootstrap-icons.css"; // For some reason, this import works inside GoalList.tsx as well.
 
 const TaskList = () => {
   return (
@@ -13,15 +13,10 @@ const TaskList = () => {
       <br />
       <div className="d-flex">
         <input className="ms-2" type="checkbox" />
-        <h3 className="ms-2">Laundry</h3>
-      </div>
-      <div className="d-flex">
-        <input className="ms-2" type="checkbox" />
-        <h3 className="ms-2">Walk Fiona</h3>
-      </div>
-      <div className="d-flex">
-        <input className="ms-2" type="checkbox" />
-        <h3 className="ms-2">Watch Flamengo</h3>
+        <h3 className="ms-2">Test</h3>
+        <a className="link-button trash-can float-end ms-2">
+          <i className="bi bi-trash3"></i>
+        </a>
       </div>
     </div>
   );
