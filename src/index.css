@@ -34,3 +34,46 @@ h3 {
   overflow-wrap: break-word; /* Break long words */
   white-space: normal; /* Alows line breaking */
 }
+
+/* Popup config */
+.popup,
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+.overlay {
+  background: rgba(49, 49, 49, 0.8);
+}
+
+.popup-content {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  /* To adjust the popup's position */
+  transform: translate(-50%, -50%);
+  background-color: #4e5283;
+  max-width: 25%;
+  min-width: 25%;
+}
+
+.close-popup {
+  top: 6%;
+  right: 3%;
+  transition: 100ms;
+  text-decoration: none;
+  color: white;
+  /* Boldness */
+  -webkit-text-stroke: 1px;
+}
+
+.close-popup:hover {
+  cursor: pointer;
+  color: #b5b2d0;
+  transition: 100ms;
+}
