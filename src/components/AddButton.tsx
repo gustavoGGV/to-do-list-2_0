@@ -22,10 +22,22 @@ const AddButton = ({ listType }: Prop) => {
         <div className="popup">
           <div className="overlay" onClick={togglePopup}></div>
           <div className="popup-content p-3 rounded-4">
-            <h2>{listType}</h2>
-            <p>This is a test</p>
+            <h2>Add {listType}</h2>
+            <br />
+            <form className="d-flex">
+              <input
+                className="add-input w-100 p-2 rounded-4"
+                type="text"
+                placeholder={`your ${listType}...`}
+              />
+              <br />
+              <br />
+              <a className="add-button ms-2 mt-1" onClick={togglePopup}>
+                <i className="bi bi-check-square"></i>
+              </a>
+            </form>
             <a
-              className="close-popup position-absolute p-1 fs-2"
+              className="close-popup position-absolute p-1"
               onClick={togglePopup}
             >
               <i className="bi bi-x-square"></i>

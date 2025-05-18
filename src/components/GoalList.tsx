@@ -6,7 +6,7 @@ const GoalList = () => {
     <div className="component p-3 rounded-4">
       <div className="d-flex">
         <h2 className="ms-2 w-100">Goal list:</h2>
-        <AddButton listType="Add goal" />
+        <AddButton listType="goal" />
       </div>
       <br />
       <div className="d-flex">
@@ -14,9 +14,6 @@ const GoalList = () => {
         <h3 className="ms-2">
           AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         </h3>
-        <a className="link-button trash-can float-end ms-2">
-          <i className="bi bi-trash3"></i>
-        </a>
       </div>
     </div>
   );

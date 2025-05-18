@@ -1,3 +1,7 @@
+* {
+  transition: 100ms;
+}
+
 body {
   background-color: #f5eefc;
   color: #4e5283;
@@ -9,7 +13,6 @@ body {
 }
 
 .link-button {
-  transition: 100ms;
   text-decoration: none;
   color: white;
   font-size: 175%;
@@ -26,7 +29,6 @@ body {
 .link-button:hover {
   cursor: pointer;
   color: #b5b2d0;
-  transition: 100ms;
 }
 
 h3 {
@@ -53,7 +55,7 @@ h3 {
 
 .popup-content {
   position: absolute;
-  top: 30%;
+  top: 40%;
   left: 50%;
   /* To adjust the popup's position */
   transform: translate(-50%, -50%);
@@ -64,10 +66,10 @@ h3 {
 
 .close-popup {
   top: 6%;
-  right: 3%;
-  transition: 100ms;
+  right: 2.5%;
   text-decoration: none;
   color: white;
+  font-size: 175%;
   /* Boldness */
   -webkit-text-stroke: 1px;
 }
@@ -75,5 +77,27 @@ h3 {
 .close-popup:hover {
   cursor: pointer;
   color: #b5b2d0;
-  transition: 100ms;
+}
+
+.add-input {
+  border: none;
+}
+
+.add-input:focus {
+  outline: none;
+  border: solid 3px;
+  border-color: #b5b2d0;
+}
+
+.add-button {
+  text-decoration: none;
+  color: white;
+  font-size: 175%;
+  /* Boldness */
+  -webkit-text-stroke: 1px;
+}
+
+.add-button:hover {
+  cursor: pointer;
+  color: #b5b2d0;
 }
