@@ -1,5 +1,7 @@
 import React from "react";
 import "bootstrap-icons/font/bootstrap-icons.css"; // For some reason, this import works inside GoalList.tsx as well.
+import Popup from "reactjs-popup";
+import "reactjs-popup/dist/index.css";
 
 const TaskList = () => {
   return (
@@ -7,7 +9,12 @@ const TaskList = () => {
       <div className="d-flex">
         <h2 className="ms-2 w-100">To-do list:</h2>
         <a className="link-button float-end me-2">
-          <i className="bi bi-plus-square"></i>
+          <Popup
+            trigger={<i className="bi bi-plus-square"></i>}
+            position="right center"
+          >
+            <p>test</p>
+          </Popup>
         </a>
       </div>
       <br />
