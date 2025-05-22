@@ -3,20 +3,22 @@ import "bootstrap-icons/font/bootstrap-icons.css"; // For some reason, this impo
 import AddButton from "./AddButton";
 
 const TaskList = () => {
-  const [tasks] = useState([]);
+  const [tasks, setTasks] = useState(["Ir ao mercado"]);
 
   return (
     <div className="component p-3 rounded-4">
       <div className="d-flex">
-        <h2 className="ms-2 w-100">To-do list:</h2>
-        <AddButton listType="task" elements={tasks} />
+        <h2 className="ms-2 w-100">Task list:</h2>
+        <AddButton listType="task" setElements={setTasks} elements={tasks} />
       </div>
       <br />
 
-      <div className="d-flex">
-        <input className="ms-2" type="checkbox" />
-        <h3 className="ms-2">Task</h3>
-      </div>
+      {tasks.map((task, key) => (
+        <div className="d-flex" key={key}>
+          <input className="ms-2" type="checkbox" />
+          <h3 className="ms-2">{task}</h3>
+        </div>
+      ))}
     </div>
   );
 };

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 // Needed to create this type because TS screams if the props are passed in a simpler way.
-type Prop = { listType: string; elements: any[] };
+type Prop = { listType: string; setElements: any; elements: any[] };
 
-const AddButton = ({ listType, elements }: Prop) => {
+const AddButton = ({ listType, setElements, elements }: Prop) => {
   const [popup, setPopup] = useState(false);
   const [elementInput, setElementInput] = useState("");
 
@@ -25,7 +25,7 @@ const AddButton = ({ listType, elements }: Prop) => {
 
   // Adds text input from the user to the elements array.
   const addElement = () => {
-    elements.push(elementInput);
+    setElements([...elements, elementInput]);
     setElementInput("");
   };
 
@@ -35,7 +35,6 @@ const AddButton = ({ listType, elements }: Prop) => {
   ) => {
     elementTogglePopup(event);
     addElement();
-    console.log(elements);
   };
   return (
     <>
@@ -53,7 +52,7 @@ const AddButton = ({ listType, elements }: Prop) => {
           <div className="popup-content p-3 rounded-4">
             <h2>Add {listType}</h2>
             <br />
-            <form className="d-flex">
+            <div className="d-flex">
               <input
                 className="add-input w-100 p-2 rounded-4"
                 type="text"
@@ -73,7 +72,7 @@ const AddButton = ({ listType, elements }: Prop) => {
               >
                 <i className="bi bi-check-square"></i>
               </a>
-            </form>
+            </div>
             <a
               className="close-popup position-absolute p-1"
               onClick={elementTogglePopup}
