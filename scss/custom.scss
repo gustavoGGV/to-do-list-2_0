@@ -1,9 +1,9 @@
 @import "../node_modules/bootstrap/scss/functions";
 @import "../node_modules/bootstrap/scss/variables";
-/* "Do it!" NavBar h1 font */
+// "Do it!" NavBar h1 font.
 @import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&display=swap');
 
-/* Gradient for the background */
+// Gradient for the background. 
 @mixin horizontal-gradient($start-color: $indigo-300, $mid-color: $blue-200, $color-stop: 50%, $end-color: $pink-200) {
   background-image: linear-gradient(to right, $start-color, $mid-color $color-stop, $end-color);
 }
@@ -11,6 +11,7 @@
 $component-background-color: $indigo-600;
 $text-color: $white;
 $hover-color: $indigo-300;
+// Check mark. 
 $checkbox-clip-path: polygon(55% 67%, 91% 11%, 64% 93%, 8% 51%);
 
 * {
@@ -21,9 +22,9 @@ body {
   @include horizontal-gradient();
 }
 
-/* Customizes all checkboxes */
+// Customizes all checkboxes. 
 input[type="checkbox"] {
-  /* Hide default checkbox style */
+  // Hide default checkbox style.
   -webkit-appearance: none;
   appearance: none;
   font: inherit;
@@ -31,19 +32,24 @@ input[type="checkbox"] {
   height: 1.15em;
   border: 0.15em solid;
   border-radius: 0.15em;
-  /* Aligns it with */ 
+  // Aligns it with the text. 
   transform: translateY(0.6em);
   position: relative;
+  z-index: 0;
 }
 
-/* This is used to place a custom check inside the box */
+input[type="checkbox"]:hover {
+  cursor: pointer;
+}
+
+// This is used to place a custom check inside the box. 
 input[type="checkbox"]::before {
-  /* No need for text or anything */
+  // No need for text or anything.
   content: "";
   position: absolute;
   width: 0.65em;
   height: 0.65em;
-  /* Hide it for now */
+  // Hide it for now 
   transform: scale(0);
   transition: 150ms;
   clip-path: $checkbox-clip-path;
@@ -74,13 +80,13 @@ h1 {
   text-decoration: none;
   color: $text-color;
   font-size: 175%;
-  /* Boldness */
+  // Boldness. 
   -webkit-text-stroke: 1px;
 }
 
 .trash-can {
   font-size: 150%;
-  /* Boldness */
+  // Boldness. 
   -webkit-text-stroke: 0.3px;
 }
 
@@ -91,18 +97,13 @@ h1 {
 
 h3 {
   max-width: 85%;
-  overflow-wrap: break-word; /* Break long words */
-  white-space: normal; /* Alows line breaking */
+  // Break long words.
+  overflow-wrap: break-word;
+  // Alows line breaking.  
+  white-space: normal; 
 }
 
-/*
-.task {
-  display: grid;
-  grid-template-columns: 1em auto;
-  gap: 0.5em;
-}*/
-
-/* Popup config */
+// Popup config. 
 .popup,
 .overlay {
   width: 100vw;
@@ -112,6 +113,8 @@ h3 {
   right: 0;
   bottom: 0;
   position: fixed;
+  // Needed to make it appear over the checkboxes.
+  z-index: 1;
 }
 
 .overlay {
@@ -122,11 +125,13 @@ h3 {
   position: absolute;
   top: 40%;
   left: 50%;
-  /* To adjust the popup's position */
+  // To adjust the popup's position. 
   transform: translate(-50%, -50%);
   background-color: $component-background-color;
   max-width: 25%;
   min-width: 25%;
+  // Needed to make it appear over the popup overlay.
+  z-index: 2;
 }
 
 .close-popup {
@@ -135,7 +140,7 @@ h3 {
   text-decoration: none;
   color: $text-color;
   font-size: 175%;
-  /* Boldness */
+  // Boldness.
   -webkit-text-stroke: 1px;
 }
 
@@ -158,7 +163,7 @@ h3 {
   text-decoration: none;
   color: $text-color;
   font-size: 175%;
-  /* Boldness */
+  // Boldness. 
   -webkit-text-stroke: 1px;
 }
 
@@ -166,4 +171,3 @@ h3 {
   cursor: pointer;
   color: $hover-color;
 }
-

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
+import type { TaskElement } from "./TaskList";
 
-// Needed to create this type because TS screams if the props are passed in a simpler way.
-type Prop = { listType: string; setElements: any; elements: any[] };
+type Prop = { listType: string; setElements: React.Dispatch<React.SetStateAction<TaskElement[]>>; elements: TaskElement[] };
 
 const AddButton = ({ listType, setElements, elements }: Prop) => {
   const [popup, setPopup] = useState(false);
-  const [elementInput, setElementInput] = useState("");
+  const [elementInput, setElementInput] = useState({id: "", content: ""});
 
   // Toggle popup when a element is clicked.
   const elementTogglePopup = (
@@ -23,19 +23,25 @@ const AddButton = ({ listType, setElements, elements }: Prop) => {
     setPopup(!popup);
   };
 
-  // Adds text input from the user to the elements array.
-  const addElement = () => {
-    setElements([...elements, elementInput]);
-    setElementInput("");
-  };
+  function getRandomNumber(max: number): string {
+    return Math.floor(Math.random() * max).toString();
+  }
 
   // Needed so we can call more than one funciton inside an element.
   const handleClick = (
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
   ) => {
+    const elementInputWithId: TaskElement = {
+      id: getRandomNumber(9999),
+      content: elementInput.content
+    }
+
+    setElements([...elements, elementInputWithId]);
+    setElementInput({id: "", content: ""});
+
     elementTogglePopup(event);
-    addElement();
   };
+
   return (
     <>
       <a className="link-button float-end me-2" onClick={elementTogglePopup}>
@@ -57,11 +63,11 @@ const AddButton = ({ listType, setElements, elements }: Prop) => {
                 className="add-input w-100 p-2 rounded-4"
                 type="text"
                 placeholder={`your ${listType}...`}
-                value={elementInput}
+                value={elementInput.content}
                 onInput={
                   /* As user types, elementInput will receive its typing */ (
                     event
-                  ) => setElementInput(event.currentTarget.value)
+                  ) => setElementInput({id: "", content: event.currentTarget.value})
                 }
               />
               <br />

@@ -2,10 +2,15 @@ import React, { useState } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css"; // For some reason, this import works inside GoalList.tsx as well.
 import AddButton from "./AddButton";
 
-const TaskList = () => {
-  const [tasks, setTasks] = useState(["Ir ao mercado"]);
+export type TaskElement = {
+  id: string;
+  content: string;
+};
 
-  const deleteTask = (taskToDelete: string, key: number) => {
+const TaskList = () => {
+  const [tasks, setTasks] = useState<TaskElement[]>([{id: "0000", content: "Ir ao mercado"}]);
+
+  const deleteTask = (key: string) => {
     // Had to return a React.MouseEvent because TypeScript says it's needed with onClick events.
     return async (event: React.MouseEvent) => {
       // Needed to get the div element.
@@ -14,15 +19,15 @@ const TaskList = () => {
 
       if(taskListing) {
         // Needed to check if the className of the div element from the task that was passed has the task's key. 
-        if(classNameOriginalValue?.includes(key.toString())) {
+        if(classNameOriginalValue?.includes(key)) {
           taskListing.className = key + " d-flex greyed-out";
         }
       }
 
       // Delay 1 second (1000 ms).
       await setDelay(1000);
-      // Delete the marked task.
-      setTasks((tasks) => tasks.filter((task) => task !== taskToDelete));
+
+      setTasks((tasks) => tasks.filter((task) => task.id != key));
       event.preventDefault();
     };
   };
@@ -40,10 +45,10 @@ const TaskList = () => {
       </div>
       <br />
 
-      {tasks.map((task, key) => (
-        <div className={key + " d-flex"} key={key}>
-          <input className="ms-2" type="checkbox" onClick={deleteTask(task, key)} />
-          <h3 className="ms-2">{task}</h3>
+      {tasks.map(task => (
+        <div className={task.id + " d-flex"} key={task.id}>
+          <input className="ms-2" type="checkbox" onClick={deleteTask(task.id)} />
+          <h3 className="ms-2">{task.content}</h3>
         </div>
       ))}
     </div>
