@@ -2,7 +2,7 @@ import React from "react";
 import { setDelay } from "./misc.utils";
 import type { TaskElement, GoalElement } from "../types/Elements.types";
 
-export const deleteElement = (key: string, setElements: React.Dispatch<React.SetStateAction<TaskElement[] | GoalElement[]>>/*, elements: TaskElement[] | GoalElement[]*/) => {
+export const deleteElement = (key: string, setElements: React.Dispatch<React.SetStateAction<TaskElement[] | GoalElement[]>>) => {
   // Had to return a React.MouseEvent because TypeScript says it's needed with onClick events.
   return async (event: React.MouseEvent) => {
     // Needed to get the div element.

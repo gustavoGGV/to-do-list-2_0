@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { getRandomNumber } from "../utils/misc.utils";
-import type { TaskElement, GoalElement } from "../types/Elements.types";
-
-type Prop = { listType: string; setElements: React.Dispatch<React.SetStateAction<TaskElement[] | GoalElement[]>>; elements: TaskElement[] | GoalElement[] };
+import type { TaskElement, GoalElement, Prop } from "../types/Elements.types";
 
 const AddButton = ({ listType, setElements, elements }: Prop) => {
   const [popup, setPopup] = useState(false);
@@ -28,7 +26,7 @@ const AddButton = ({ listType, setElements, elements }: Prop) => {
   const handleClick = (
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
   ) => {
-    const elementInputWithId: TaskElement = {
+    const elementInputWithId: TaskElement | GoalElement = {
       id: getRandomNumber(9999),
       content: elementInput.content
     }
