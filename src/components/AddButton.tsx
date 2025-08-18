@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import type { TaskElement } from "./TaskList";
+import { getRandomNumber } from "../utils/misc.utils";
+import type { TaskElement, GoalElement } from "../types/Elements.types";
 
-type Prop = { listType: string; setElements: React.Dispatch<React.SetStateAction<TaskElement[]>>; elements: TaskElement[] };
+type Prop = { listType: string; setElements: React.Dispatch<React.SetStateAction<TaskElement[] | GoalElement[]>>; elements: TaskElement[] | GoalElement[] };
 
 const AddButton = ({ listType, setElements, elements }: Prop) => {
   const [popup, setPopup] = useState(false);
@@ -22,10 +23,6 @@ const AddButton = ({ listType, setElements, elements }: Prop) => {
     event.preventDefault();
     setPopup(!popup);
   };
-
-  function getRandomNumber(max: number): string {
-    return Math.floor(Math.random() * max).toString();
-  }
 
   // Needed so we can call more than one funciton inside an element.
   const handleClick = (

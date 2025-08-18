@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import AddButton from "./AddButton";
+import { deleteElement } from "../utils/elements.utils";
+import type { GoalElement } from "../types/Elements.types";
 
 const GoalList = () => {
-  const [goals, setGoals] = useState(["Treinar"]);
+  const [goals, setGoals] = useState<GoalElement[]>([{ id: "0000", content: "Fazer CNH" }]);
 
   return (
     <div className="component p-3 rounded-4">
@@ -12,10 +14,10 @@ const GoalList = () => {
       </div>
       <br />
 
-      {goals.map((goal, key) => (
-        <div className="d-flex" key={key}>
-          <input className="ms-2" type="checkbox" />
-          <h3 className="ms-2">{goal}</h3>
+      {goals.map(goal => (
+        <div className={goal.id + " d-flex"} key={goal.id}>
+          <input className="ms-2" type="checkbox" onClick={deleteElement(goal.id, setGoals)} />
+          <h3 className="ms-2">{goal.content}</h3>
         </div>
       ))}
     </div>
