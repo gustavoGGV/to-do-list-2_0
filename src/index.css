@@ -11,6 +11,7 @@ input[type=checkbox] {
   -webkit-appearance: none;
   appearance: none;
   font: inherit;
+  color: inherit;
   width: 1.15em;
   height: 1.15em;
   border: 0.15em solid;

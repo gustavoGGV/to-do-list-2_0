@@ -1,26 +1,11 @@
 import React, { useState } from "react";
 import { getRandomNumber } from "../utils/misc.utils";
+import { elementTogglePopup } from "../utils/popup.utils";
 import type { TaskElement, GoalElement, Prop } from "../types/Elements.types";
 
 const AddButton = ({ listType, setElements, elements }: Prop) => {
   const [popup, setPopup] = useState(false);
   const [elementInput, setElementInput] = useState({id: "", content: ""});
-
-  // Toggle popup when a element is clicked.
-  const elementTogglePopup = (
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
-  ) => {
-    event.preventDefault();
-    setPopup(!popup);
-  };
-
-  // The mouse events from links/buttons(elements) are different from divs, so I had to differentiate.
-  const divTogglePopup = (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
-    event.preventDefault();
-    setPopup(!popup);
-  };
 
   // Needed so we can call more than one funciton inside an element.
   const handleClick = (
@@ -34,12 +19,12 @@ const AddButton = ({ listType, setElements, elements }: Prop) => {
     setElements([...elements, elementInputWithId]);
     setElementInput({id: "", content: ""});
 
-    elementTogglePopup(event);
+    elementTogglePopup(setPopup, popup, event);
   };
 
   return (
     <>
-      <a className="link-button float-end me-2" onClick={elementTogglePopup}>
+      <a className="link-button float-end me-2" onClick={event => (elementTogglePopup(setPopup, popup, event))}>
         <i className="bi bi-plus-square"></i>
       </a>
 
@@ -48,7 +33,7 @@ const AddButton = ({ listType, setElements, elements }: Prop) => {
         <div className="popup">
           <div
             className="overlay"
-            onClick={(event) => divTogglePopup(event)}
+            onClick={event => elementTogglePopup(setPopup, popup, event)}
           ></div>
           <div className="popup-content p-3 rounded-4">
             <h2>Add {listType}</h2>
@@ -76,7 +61,7 @@ const AddButton = ({ listType, setElements, elements }: Prop) => {
             </div>
             <a
               className="close-popup position-absolute p-1"
-              onClick={elementTogglePopup}
+              onClick={event => elementTogglePopup(setPopup, popup, event)}
             >
               <i className="bi bi-x-square"></i>
             </a>

@@ -11,6 +11,8 @@
 $component-background-color: $indigo-600;
 $text-color: $white;
 $hover-color: $indigo-300;
+$greyed-out: $gray-600;
+
 // Check mark. 
 $checkbox-clip-path: polygon(55% 67%, 91% 11%, 64% 93%, 8% 51%);
 
@@ -28,6 +30,7 @@ input[type="checkbox"] {
   -webkit-appearance: none;
   appearance: none;
   font: inherit;
+  color: inherit;
   width: 1.15em;
   height: 1.15em;
   border: 0.15em solid;
@@ -49,7 +52,7 @@ input[type="checkbox"]::before {
   position: absolute;
   width: 0.65em;
   height: 0.65em;
-  // Hide it for now 
+  // Hide it for now.
   transform: scale(0);
   transition: 150ms;
   clip-path: $checkbox-clip-path;
@@ -63,7 +66,7 @@ input[type="checkbox"]:checked::before {
 }
 
 .greyed-out {
-  color: $gray-600;
+  color: $greyed-out;
 }
 
 .component {
