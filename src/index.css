@@ -142,4 +142,8 @@ h3 {
   color: rgb(163.2, 111.6, 247.2);
 }
 
+.dollar-signal {
+  transform: translateY(0.3em);
+}
+
 /*# sourceMappingURL=index.css.map */

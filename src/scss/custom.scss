@@ -1,5 +1,5 @@
-@import "../node_modules/bootstrap/scss/functions";
-@import "../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
 // "Do it!" NavBar h1 font.
 @import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&display=swap');
 
@@ -173,4 +173,8 @@ h3 {
 .add-button:hover {
   cursor: pointer;
   color: $hover-color;
+}
+
+.dollar-signal {
+  transform: translateY(0.3em);
 }

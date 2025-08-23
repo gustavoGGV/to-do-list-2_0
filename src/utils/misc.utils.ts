@@ -15,12 +15,3 @@ export function setDelay(delay: number) {
 export function getRandomNumber(max: number): string {
   return Math.floor(Math.random() * max).toString();
 }
-
-/**
- * Basic function to capitalize a string's first letter.
- * @param value - string
- * @returns - string
- */
-export function capitalizeFirstLetter(value: string): string {
-  return String(value).charAt(0).toUpperCase() + String(value).slice(1);
-}
