@@ -1,6 +1,6 @@
 import AddTaskButton from "./AddTaskButton";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { deleteElement } from "../utils/elements.utils";
+import { setElementDone } from "../utils/elements.utils";
 import type { TaskElement, TaskProp } from "../types/Elements.types";
 
 const TaskList = ({ setTasks, tasks }: TaskProp) => {
@@ -14,7 +14,7 @@ const TaskList = ({ setTasks, tasks }: TaskProp) => {
 
       {tasks.map(task => (
         <div className={task.id + " d-flex"} key={task.id}>
-          <input className="ms-2" type="checkbox" onClick={deleteElement<TaskElement>(task.id, setTasks)} />
+          <input className="ms-2" type="checkbox" onClick={(event) => setElementDone<TaskElement>(task.id, setTasks, event)} />
           <h3 className="ms-2">{task.content}</h3>
         </div>
       ))}

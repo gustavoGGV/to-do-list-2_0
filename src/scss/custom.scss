@@ -65,7 +65,7 @@ input[type="checkbox"]:checked::before {
   transform: translateY(-0.3em) translateX(-0.2em);
 }
 
-.greyed-out {
+.greyed-out-task {
   color: $greyed-out;
 }
 
@@ -91,6 +91,12 @@ h1 {
   font-size: 150%;
   // Boldness. 
   -webkit-text-stroke: 0.3px;
+  color: $text-color;
+}
+
+.trash-can:hover {
+  cursor: pointer;
+  color: $hover-color;
 }
 
 .link-button:hover {
@@ -177,4 +183,8 @@ h3 {
 
 .dollar-signal {
   transform: translateY(0.3em);
+}
+
+.money-qty-input {
+  width: 40%;
 }

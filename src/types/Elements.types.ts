@@ -6,7 +6,7 @@ export type TaskElement = {
 export type GoalElement = {
   id: string;
   content: string;
-  type: "money" | "steps";
+  isDone: boolean;
   moneyQty: number | null;
   steps: number | null;
 };
@@ -36,20 +36,3 @@ export type AddGoalPopupProp = {
   popup: boolean;
   handleClick: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
 };
-
-/*
-export type PopupsProp = {
-  setElementInput: React.Dispatch<
-    React.SetStateAction<{
-      id: string;
-      content: string;
-    }>
-  >;
-  elementInput: {
-    id: string;
-    content: string;
-  };
-  setPopup: React.Dispatch<React.SetStateAction<boolean>>;
-  popup: boolean;
-  handleClick: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
-};*/

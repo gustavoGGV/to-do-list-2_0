@@ -42,7 +42,7 @@ input[type=checkbox]:checked::before {
   transform: translateY(-0.3em) translateX(-0.2em);
 }
 
-.greyed-out {
+.greyed-out-task {
   color: #6c757d;
 }
 
@@ -66,6 +66,12 @@ h1 {
 .trash-can {
   font-size: 150%;
   -webkit-text-stroke: 0.3px;
+  color: #fff;
+}
+
+.trash-can:hover {
+  cursor: pointer;
+  color: rgb(163.2, 111.6, 247.2);
 }
 
 .link-button:hover {
@@ -144,6 +150,10 @@ h3 {
 
 .dollar-signal {
   transform: translateY(0.3em);
+}
+
+.money-qty-input {
+  width: 40%;
 }
 
 /*# sourceMappingURL=index.css.map */
