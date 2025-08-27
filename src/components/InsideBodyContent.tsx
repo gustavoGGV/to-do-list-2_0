@@ -1,11 +1,13 @@
-import { useState } from "react";
-import TaskList from "./TaskList";
-import GoalList from "./GoalList";
-import type { TaskElement, GoalElement } from "../types/Elements.types";
+import { useState } from 'react';
+import TaskList from './lists/TaskList';
+import GoalList from './lists/GoalList';
+import type { TaskElement, GoalElement } from '../types/Elements.types';
 
 const InsideBodyContent = () => {
-  const [tasks, setTasks] = useState<TaskElement[]>([{ id: "0000", content: "Do the dishes" }]);
-  const [goals, setGoals] = useState<GoalElement[]>([{ id: "0000", content: "Buy a car", type: "money", moneyQty: 20000, steps: null }]);
+  const [tasks, setTasks] = useState<TaskElement[]>([{ id: '0000', content: 'Do the dishes' }]);
+  const [goals, setGoals] = useState<GoalElement[]>([
+    { id: '0000', content: 'Buy a car', isDone: false, moneyQty: 20000, steps: null },
+  ]);
 
   return (
     <div className="d-flex">

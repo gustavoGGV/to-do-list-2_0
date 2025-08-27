@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import AddTaskPopup from './AddTaskPopup';
-import { getRandomNumber } from '../utils/misc.utils';
-import { elementTogglePopup } from '../utils/popup.utils';
-import type { TaskElement, TaskProp } from '../types/Elements.types';
+import AddTaskPopup from '../popups/AddTaskPopup';
+import { getRandomNumber } from '../../utils/misc.utils';
+import { elementTogglePopup } from '../../utils/popup.utils';
+import type { TaskElement, TaskProp } from '../../types/Elements.types';
 
 const AddTaskButton = ({ setTasks, tasks }: TaskProp) => {
   const [popup, setPopup] = useState(false);

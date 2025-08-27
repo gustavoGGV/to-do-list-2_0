@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { elementTogglePopup } from '../utils/popup.utils';
-import type { AddGoalPopupProp } from '../types/Elements.types';
+import { elementTogglePopup } from '../../utils/popup.utils';
+import type { AddGoalPopupProp } from '../../types/Elements.types';
 
 const AddGoalPopup = ({ setGoalInput, goalInput, setPopup, popup, handleClick }: AddGoalPopupProp) => {
   const [isMoneyRadioChecked, setIsMoneyRadioChecked] = useState(false);
@@ -41,9 +41,7 @@ const AddGoalPopup = ({ setGoalInput, goalInput, setPopup, popup, handleClick }:
               className="ms-2"
               type="radio"
               name="radio-button"
-              onChange={(_event) =>
-                setRadioCheck(setIsMoneyRadioChecked, setIsStepsRadioChecked, isStepsRadioChecked)
-              }
+              onChange={() => setRadioCheck(setIsMoneyRadioChecked, setIsStepsRadioChecked, isStepsRadioChecked)}
             />
           </div>
           <div className="radio-option">
@@ -52,9 +50,7 @@ const AddGoalPopup = ({ setGoalInput, goalInput, setPopup, popup, handleClick }:
               className="ms-2"
               type="radio"
               name="radio-button"
-              onChange={(_event) =>
-                setRadioCheck(setIsStepsRadioChecked, setIsMoneyRadioChecked, isMoneyRadioChecked)
-              }
+              onChange={() => setRadioCheck(setIsStepsRadioChecked, setIsMoneyRadioChecked, isMoneyRadioChecked)}
             />
           </div>
         </div>

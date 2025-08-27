@@ -1,5 +1,5 @@
-import { elementTogglePopup } from '../utils/popup.utils';
-import type { AddTaskPopupProp } from '../types/Elements.types';
+import { elementTogglePopup } from '../../utils/popup.utils';
+import type { AddTaskPopupProp } from '../../types/Elements.types';
 
 const AddTaskPopup = ({ setTaskInput, taskInput, setPopup, popup, handleClick }: AddTaskPopupProp) => {
   return (

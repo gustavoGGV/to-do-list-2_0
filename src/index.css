@@ -1,13 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&display=swap");
 * {
-  transition: 100ms;
-}
+  transition: 100ms; }
 
 body {
-  background-image: linear-gradient(to right, rgb(163.2, 111.6, 247.2), rgb(158.2, 197, 254.2) 50%, rgb(238.6, 173.4, 205.8));
-}
+  background-image: linear-gradient(to right, #a370f7, #9ec5fe 50%, #efadce); }
 
-input[type=checkbox] {
+input[type='checkbox'] {
   -webkit-appearance: none;
   appearance: none;
   font: inherit;
@@ -18,15 +16,13 @@ input[type=checkbox] {
   border-radius: 0.15em;
   transform: translateY(0.6em);
   position: relative;
-  z-index: 0;
-}
+  z-index: 0; }
 
-input[type=checkbox]:hover {
-  cursor: pointer;
-}
+input[type='checkbox']:hover {
+  cursor: pointer; }
 
-input[type=checkbox]::before {
-  content: "";
+input[type='checkbox']::before {
+  content: '';
   position: absolute;
   width: 0.65em;
   height: 0.65em;
@@ -34,56 +30,46 @@ input[type=checkbox]::before {
   transition: 150ms;
   clip-path: polygon(55% 67%, 91% 11%, 64% 93%, 8% 51%);
   font-size: 3em;
-  background-color: rgb(163.2, 111.6, 247.2);
-}
+  background-color: #a370f7; }
 
-input[type=checkbox]:checked::before {
+input[type='checkbox']:checked::before {
   transform: scale(1);
-  transform: translateY(-0.3em) translateX(-0.2em);
-}
+  transform: translateY(-0.3em) translateX(-0.2em); }
 
 .greyed-out-task {
-  color: #6c757d;
-}
+  color: #6c757d; }
 
 .component {
   color: #fff;
-  background-color: rgb(81.6, 12.8, 193.6);
-}
+  background-color: #520dc2; }
 
 h1 {
-  font-family: "Edu NSW ACT Cursive", sans-serif !important;
-  font-weight: 700;
-}
+  font-family: 'Edu NSW ACT Cursive', sans-serif !important;
+  font-weight: 700; }
 
 .link-button {
   text-decoration: none;
   color: #fff;
   font-size: 175%;
-  -webkit-text-stroke: 1px;
-}
+  -webkit-text-stroke: 1px; }
 
 .trash-can {
   font-size: 150%;
   -webkit-text-stroke: 0.3px;
-  color: #fff;
-}
+  color: #fff; }
 
 .trash-can:hover {
   cursor: pointer;
-  color: rgb(163.2, 111.6, 247.2);
-}
+  color: #a370f7; }
 
 .link-button:hover {
   cursor: pointer;
-  color: rgb(163.2, 111.6, 247.2);
-}
+  color: #a370f7; }
 
 h3 {
   max-width: 85%;
   overflow-wrap: break-word;
-  white-space: normal;
-}
+  white-space: normal; }
 
 .popup,
 .overlay {
@@ -94,23 +80,20 @@ h3 {
   right: 0;
   bottom: 0;
   position: fixed;
-  z-index: 1;
-}
+  z-index: 1; }
 
 .overlay {
-  background: rgba(49, 49, 49, 0.8);
-}
+  background: rgba(49, 49, 49, 0.8); }
 
 .popup-content {
   position: absolute;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgb(81.6, 12.8, 193.6);
+  background-color: #520dc2;
   max-width: 25%;
   min-width: 25%;
-  z-index: 2;
-}
+  z-index: 2; }
 
 .close-popup {
   top: 6%;
@@ -118,42 +101,36 @@ h3 {
   text-decoration: none;
   color: #fff;
   font-size: 175%;
-  -webkit-text-stroke: 1px;
-}
+  -webkit-text-stroke: 1px; }
 
 .close-popup:hover {
   cursor: pointer;
-  color: rgb(163.2, 111.6, 247.2);
-}
+  color: #a370f7; }
 
 .add-input {
-  border: none;
-}
+  border: none; }
 
 .add-input:focus {
   outline: none;
   border: solid 3px;
-  border-color: rgb(163.2, 111.6, 247.2);
-}
+  border-color: #a370f7; }
 
 .add-button {
   text-decoration: none;
   color: #fff;
   font-size: 175%;
-  -webkit-text-stroke: 1px;
-}
+  -webkit-text-stroke: 1px; }
 
 .add-button:hover {
   cursor: pointer;
-  color: rgb(163.2, 111.6, 247.2);
-}
+  color: #a370f7; }
 
 .dollar-signal {
-  transform: translateY(0.3em);
-}
+  transform: translateY(0.3em); }
 
 .money-qty-input {
   width: 40%;
-}
+  background-color: #520dc2;
+  border: none; }
 
 /*# sourceMappingURL=index.css.map */
