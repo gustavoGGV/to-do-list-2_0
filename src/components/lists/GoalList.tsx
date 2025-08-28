@@ -8,6 +8,7 @@ const GoalList = ({ setGoals, goals }: GoalProp) => {
   const [goalWasDone, setGoalWasDone] = useState(false);
   const [stepsWereUpdated, setStepsWereUpdated] = useState(false);
 
+  // Needed to set a goal listing done.
   const isGoalDone = async (event: React.ChangeEvent<HTMLInputElement>, goal: GoalElement) => {
     if (
       (goal.moneyQty && Number(event.currentTarget.value) >= goal.moneyQty) ||
@@ -17,8 +18,10 @@ const GoalList = ({ setGoals, goals }: GoalProp) => {
     }
   };
 
+  // Needed to update the steps input of a goal listing from the user.
   const updateStepsInput = (isAddition: boolean, goal: GoalElement) => {
     if (goal.steps) {
+      // Had to add the -1 to update it earlier, this is not the ideal solution.
       if (goal.stepsInput >= goal.steps - 1) {
         setGoalDone(setGoalWasDone, goalWasDone, setGoals, goal);
       }
@@ -28,6 +31,7 @@ const GoalList = ({ setGoals, goals }: GoalProp) => {
       goal.stepsInput++;
     }
 
+    // Needed so the user cannot put negative steps input.
     if (goal.stepsInput > 0) {
       if (!isAddition) {
         goal.stepsInput--;

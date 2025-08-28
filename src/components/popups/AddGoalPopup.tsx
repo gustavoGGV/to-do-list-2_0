@@ -6,7 +6,7 @@ const AddGoalPopup = ({ setGoalInput, goalInput, setPopup, popup, handleClick }:
   const [isMoneyRadioChecked, setIsMoneyRadioChecked] = useState(false);
   const [isStepsRadioChecked, setIsStepsRadioChecked] = useState(false);
 
-  // Little trick.
+  // Needed to update the radios' selection.
   const setRadioCheck = (
     setRadioToCheck: React.Dispatch<React.SetStateAction<boolean>>,
     setRadioToUncheck: React.Dispatch<React.SetStateAction<boolean>>,
