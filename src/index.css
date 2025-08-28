@@ -131,6 +131,17 @@ h3 {
 .money-qty-input {
   width: 40%;
   background-color: #520dc2;
-  border: none; }
+  border: none;
+  color: #fff; }
+
+.money-qty-input:focus {
+  outline: none; }
+
+.steps-btns {
+  color: #fff; }
+
+.steps-btns:hover {
+  cursor: pointer;
+  color: #a370f7; }
 
 /*# sourceMappingURL=index.css.map */

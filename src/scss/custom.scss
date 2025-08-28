@@ -189,4 +189,18 @@ h3 {
   width: 40%;
   background-color: $component-background-color;
   border: none;
+  color: $text-color;
+}
+
+.money-qty-input:focus {
+  outline: none;
+}
+
+.steps-btns {
+  color: $text-color;
+}
+
+.steps-btns:hover {
+  cursor: pointer;
+  color: $hover-color;
 }

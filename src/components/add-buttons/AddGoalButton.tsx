@@ -11,6 +11,7 @@ const AddGoalButton = ({ setGoals, goals }: GoalProp) => {
     isDone: false,
     moneyQty: null,
     steps: null,
+    stepsInput: 0,
   });
   const [popup, setPopup] = useState(false);
 
@@ -21,10 +22,11 @@ const AddGoalButton = ({ setGoals, goals }: GoalProp) => {
       isDone: goalInput.isDone,
       moneyQty: goalInput.moneyQty,
       steps: goalInput.steps,
+      stepsInput: goalInput.stepsInput,
     };
 
     setGoals([...goals, goal]);
-    setGoalInput({ id: '', content: '', isDone: false, moneyQty: null, steps: null });
+    setGoalInput({ id: '', content: '', isDone: false, moneyQty: null, steps: null, stepsInput: 0 });
   };
 
   // Needed so we can call more than one funciton inside an element.
@@ -35,7 +37,7 @@ const AddGoalButton = ({ setGoals, goals }: GoalProp) => {
 
   return (
     <>
-      <a className="link-button float-end me-2" onClick={(event) => elementTogglePopup(setPopup, popup, event)}>
+      <a className="link-button float-end" onClick={(event) => elementTogglePopup(setPopup, popup, event)}>
         <i className="bi bi-plus-square"></i>
       </a>
 

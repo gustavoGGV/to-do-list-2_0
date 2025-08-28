@@ -9,6 +9,7 @@ export type GoalElement = {
   isDone: boolean;
   moneyQty: number | null;
   steps: number | null;
+  stepsInput: number;
 };
 
 export type TaskProp = {

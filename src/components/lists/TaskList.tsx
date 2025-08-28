@@ -1,7 +1,7 @@
 import AddTaskButton from '../add-buttons/AddTaskButton';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import { setElementDone } from '../../utils/elements.utils';
-import type { TaskElement, TaskProp } from '../../types/Elements.types';
+import { setTaskDone } from '../../utils/elements.utils';
+import type { TaskProp } from '../../types/Elements.types';
 
 const TaskList = ({ setTasks, tasks }: TaskProp) => {
   return (
@@ -14,7 +14,7 @@ const TaskList = ({ setTasks, tasks }: TaskProp) => {
 
       {tasks.map((task) => (
         <div className={task.id + ' d-flex'} key={task.id}>
-          <input type="checkbox" onClick={(event) => setElementDone<TaskElement>(task.id, setTasks, event)} />
+          <input type="checkbox" onClick={(event) => setTaskDone(task.id, setTasks, event)} />
           <h3 className="ms-2">{task.content}</h3>
         </div>
       ))}
