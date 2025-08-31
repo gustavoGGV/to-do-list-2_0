@@ -60,3 +60,44 @@ export const deleteElement = <Element extends { id: string }>(
 ) => {
   setElements((elements) => elements.filter((element) => element.id != key));
 };
+
+/**
+ * This function will validate if the user's input is okay to pass.
+ * @param content - string
+ * @param elementType - 'task' | 'goal'
+ * @param moneyQty - number | null | undefined
+ * @param steps - number | null | undefined
+ * @returns - string[]
+ */
+export const validateElement = (
+  content: string,
+  elementType: 'task' | 'goal',
+  moneyQty?: number | null,
+  steps?: number | null,
+): string[] => {
+  const errors: string[] = [];
+
+  if (!content) {
+    errors.push('Please fill the ' + elementType + ' field!');
+  }
+
+  if (elementType === 'goal') {
+    if (!moneyQty && !steps) {
+      errors.push('Please fill the money/steps quantity field!');
+    }
+
+    if (moneyQty && (moneyQty > 999999999 || moneyQty <= 0)) {
+      errors.push('The money goal has to be between $0.00 and $999,999,999.00.');
+    }
+
+    if (steps && (steps > 1000 || steps <= 0)) {
+      errors.push('The steps goal has to be between 0 and 1.000.');
+    }
+  }
+
+  if (content.length > 120) {
+    errors.push('The ' + elementType + ' field cannot have more than 120 characters!');
+  }
+
+  return errors;
+};

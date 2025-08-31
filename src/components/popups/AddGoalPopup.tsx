@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { elementTogglePopup } from '../../utils/popup.utils';
+import { validateElement } from '../../utils/elements.utils';
 import type { AddGoalPopupProp } from '../../types/Elements.types';
 
 const AddGoalPopup = ({ setGoalInput, goalInput, setPopup, popup, handleClick }: AddGoalPopupProp) => {
   const [isMoneyRadioChecked, setIsMoneyRadioChecked] = useState(false);
   const [isStepsRadioChecked, setIsStepsRadioChecked] = useState(false);
+  const [errorList, setErrorList] = useState<string[]>([]);
 
   // Needed to update the radios' selection.
   const setRadioCheck = (
@@ -19,6 +21,18 @@ const AddGoalPopup = ({ setGoalInput, goalInput, setPopup, popup, handleClick }:
     setRadioToCheck(true);
   };
 
+  const validateInput = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    const errors = validateElement(goalInput.content, 'goal', goalInput.moneyQty, goalInput.steps);
+
+    if (errors.length > 0) {
+      setErrorList(errors);
+
+      return;
+    }
+
+    handleClick(event);
+  };
+
   return (
     <div className="popup">
       <div className="overlay" onClick={(event) => elementTogglePopup(setPopup, popup, event)}></div>
@@ -29,7 +43,7 @@ const AddGoalPopup = ({ setGoalInput, goalInput, setPopup, popup, handleClick }:
           <input
             className="add-input w-100 p-2 rounded-4"
             type="text"
-            placeholder="your goal.."
+            placeholder="your goal..."
             value={goalInput.content}
             onInput={(event) => setGoalInput({ ...goalInput, content: event.currentTarget.value })}
           />
@@ -54,8 +68,9 @@ const AddGoalPopup = ({ setGoalInput, goalInput, setPopup, popup, handleClick }:
             />
           </div>
         </div>
+
         {isMoneyRadioChecked && (
-          <div className="mt-3 d-flex justify-content-center">
+          <div className="mt-3 mb-3 d-flex justify-content-center">
             <p className="dollar-signal fs-4 me-1">$</p>
             <input
               className="add-input p-2 rounded-4"
@@ -64,14 +79,14 @@ const AddGoalPopup = ({ setGoalInput, goalInput, setPopup, popup, handleClick }:
               value={goalInput.moneyQty?.toString()}
               onInput={(event) => setGoalInput({ ...goalInput, moneyQty: Number(event.currentTarget.value) })}
             />
-            <a className="add-button ms-2 mt-1" onClick={(event) => handleClick(event)}>
+            <a className="add-button ms-2 mt-1" onClick={(event) => validateInput(event)}>
               <i className="bi bi-check-square"></i>
             </a>
           </div>
         )}
 
         {isStepsRadioChecked && (
-          <div className="mt-3 d-flex justify-content-center">
+          <div className="mt-3 mb-2 d-flex justify-content-center">
             <input
               className="add-input p-2 rounded-4"
               type="number"
@@ -79,17 +94,20 @@ const AddGoalPopup = ({ setGoalInput, goalInput, setPopup, popup, handleClick }:
               value={goalInput.steps?.toString()}
               onInput={(event) => setGoalInput({ ...goalInput, steps: Number(event.currentTarget.value) })}
             />
-            <a className="add-button ms-2 mt-1" onClick={(event) => handleClick(event)}>
+            <a className="add-button ms-2 mt-1" onClick={(event) => validateInput(event)}>
               <i className="bi bi-check-square"></i>
             </a>
           </div>
         )}
+
         <a
           className="close-popup position-absolute p-1"
           onClick={(event) => elementTogglePopup(setPopup, popup, event)}
         >
           <i className="bi bi-x-square"></i>
         </a>
+
+        {errorList.length > 0 && errorList.map((error) => <p className="text-danger mb-1">{error}</p>)}
       </div>
     </div>
   );

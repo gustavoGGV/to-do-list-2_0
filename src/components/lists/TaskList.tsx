@@ -12,12 +12,15 @@ const TaskList = ({ setTasks, tasks }: TaskProp) => {
       </div>
       <br />
 
-      {tasks.map((task) => (
-        <div className={task.id + ' d-flex'} key={task.id}>
-          <input type="checkbox" onClick={(event) => setTaskDone(task.id, setTasks, event)} />
-          <h3 className="ms-2">{task.content}</h3>
-        </div>
-      ))}
+      {tasks.length <= 0 && <h3>No tasks!</h3>}
+
+      {tasks.length > 0 &&
+        tasks.map((task) => (
+          <div className={task.id + ' d-flex'} key={task.id}>
+            <input type="checkbox" onClick={(event) => setTaskDone(task.id, setTasks, event)} />
+            <h3 className="ms-2">{task.content}</h3>
+          </div>
+        ))}
     </div>
   );
 };

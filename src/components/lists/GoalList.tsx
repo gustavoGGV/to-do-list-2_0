@@ -21,7 +21,6 @@ const GoalList = ({ setGoals, goals }: GoalProp) => {
   // Needed to update the steps input of a goal listing from the user.
   const updateStepsInput = (isAddition: boolean, goal: GoalElement) => {
     if (goal.steps) {
-      // Had to add the -1 to update it earlier, this is not the ideal solution.
       if (goal.stepsInput >= goal.steps - 1) {
         setGoalDone(setGoalWasDone, goalWasDone, setGoals, goal);
       }
@@ -49,47 +48,50 @@ const GoalList = ({ setGoals, goals }: GoalProp) => {
       </div>
       <br />
 
-      {goals.map((goal) => (
-        <div className={goal.id + ' d-flex flex-row align-items-center'} key={goal.id}>
-          {goal.moneyQty && !goal.isDone && (
-            <p className="fs-4 w-25 mb-1">
-              $ <input className="money-qty-input" type="number" onChange={(event) => isGoalDone(event, goal)} /> / $
-              {goal.moneyQty}
-            </p>
-          )}
+      {goals.length <= 0 && <h3>No goals!</h3>}
 
-          {goal.steps && !goal.isDone && (
-            <div className="w-25 d-flex align-items-center">
-              <a className="steps-btns fs-4" onClick={() => updateStepsInput(true, goal)}>
-                <i className="bi bi-plus-square"></i>
-              </a>
-              <a className="steps-btns fs-4 ms-1" onClick={() => updateStepsInput(false, goal)}>
-                <i className="bi bi-dash-square"></i>
-              </a>
-              <p className="fs-4 mb-1 ms-3">
-                {goal.stepsInput} / {goal.steps}
+      {goals.length > 0 &&
+        goals.map((goal) => (
+          <div className={goal.id + ' d-flex flex-row align-items-center'} key={goal.id}>
+            {goal.moneyQty && !goal.isDone && (
+              <p className="fs-4 w-25 mb-1">
+                $ <input className="money-qty-input" type="number" onChange={(event) => isGoalDone(event, goal)} /> / $
+                {goal.moneyQty}
               </p>
-            </div>
-          )}
+            )}
 
-          {!goal.isDone && (
-            <>
-              <h3 className="ms-2 mb-1 w-50">{goal.content}</h3>
-              <div className="d-flex justify-content-end w-25">
-                <a className="trash-can ms-2" onClick={() => deleteElement<GoalElement>(goal.id, setGoals)}>
-                  <i className="bi bi-trash-fill"></i>
+            {goal.steps && !goal.isDone && (
+              <div className="w-25 d-flex align-items-center">
+                <a className="steps-btns fs-4" onClick={() => updateStepsInput(true, goal)}>
+                  <i className="bi bi-plus-square"></i>
                 </a>
+                <a className="steps-btns fs-4 ms-1" onClick={() => updateStepsInput(false, goal)}>
+                  <i className="bi bi-dash-square"></i>
+                </a>
+                <p className="fs-4 mb-1 ms-3">
+                  {goal.stepsInput} / {goal.steps}
+                </p>
               </div>
-            </>
-          )}
+            )}
 
-          {goal.isDone && (
-            <h3 className="text-success mb-1">
-              {goal.content} done! <i className="bi bi-check2"></i>
-            </h3>
-          )}
-        </div>
-      ))}
+            {!goal.isDone && (
+              <>
+                <h3 className="ms-2 mb-1 w-50">{goal.content}</h3>
+                <div className="d-flex justify-content-end w-25">
+                  <a className="trash-can ms-2" onClick={() => deleteElement<GoalElement>(goal.id, setGoals)}>
+                    <i className="bi bi-trash-fill"></i>
+                  </a>
+                </div>
+              </>
+            )}
+
+            {goal.isDone && (
+              <h3 className="text-success mb-1">
+                {goal.content} done! <i className="bi bi-check2"></i>
+              </h3>
+            )}
+          </div>
+        ))}
     </div>
   );
 };

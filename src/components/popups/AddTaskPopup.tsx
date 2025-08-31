@@ -1,7 +1,23 @@
+import { useState } from 'react';
 import { elementTogglePopup } from '../../utils/popup.utils';
+import { validateElement } from '../../utils/elements.utils';
 import type { AddTaskPopupProp } from '../../types/Elements.types';
 
 const AddTaskPopup = ({ setTaskInput, taskInput, setPopup, popup, handleClick }: AddTaskPopupProp) => {
+  const [errorList, setErrorList] = useState<string[]>([]);
+
+  const validateInput = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    const errors = validateElement(taskInput.content, 'task');
+
+    if (errors.length > 0) {
+      setErrorList(errors);
+
+      return;
+    }
+
+    handleClick(event);
+  };
+
   return (
     <div className="popup">
       <div className="overlay" onClick={(event) => elementTogglePopup(setPopup, popup, event)}></div>
@@ -10,13 +26,13 @@ const AddTaskPopup = ({ setTaskInput, taskInput, setPopup, popup, handleClick }:
         <br />
         <div className="d-flex">
           <input
-            className="add-input w-100 p-2 rounded-4"
+            className="add-input w-100 p-2 mb-3 rounded-4"
             type="text"
             placeholder="your task..."
             value={taskInput.content}
             onInput={(event) => setTaskInput({ id: '', content: event.currentTarget.value })}
           />
-          <a className="add-button ms-2 mt-1" onClick={(event) => handleClick(event)}>
+          <a className="add-button ms-2 mt-1" onClick={(event) => validateInput(event)}>
             <i className="bi bi-check-square"></i>
           </a>
         </div>
@@ -26,6 +42,8 @@ const AddTaskPopup = ({ setTaskInput, taskInput, setPopup, popup, handleClick }:
         >
           <i className="bi bi-x-square"></i>
         </a>
+
+        {errorList.length > 0 && errorList.map((error) => <p className="text-danger mb-1">{error}</p>)}
       </div>
     </div>
   );
