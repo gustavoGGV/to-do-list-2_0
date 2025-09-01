@@ -4,11 +4,8 @@ import GoalList from './lists/GoalList';
 import type { TaskElement, GoalElement } from '../types/Elements.types';
 
 const InsideBodyContent = () => {
-  const [tasks, setTasks] = useState<TaskElement[]>([{ id: '0000', content: 'Do the dishes' }]);
-  const [goals, setGoals] = useState<GoalElement[]>([
-    { id: '0000', content: 'Buy a car', isDone: false, moneyQty: 20000, steps: null, stepsInput: 0 },
-    { id: '9999', content: 'Go to the gym', isDone: false, moneyQty: null, steps: 200, stepsInput: 0 },
-  ]);
+  const [tasks, setTasks] = useState<TaskElement[]>([]);
+  const [goals, setGoals] = useState<GoalElement[]>([]);
 
   return (
     <div className="d-flex">

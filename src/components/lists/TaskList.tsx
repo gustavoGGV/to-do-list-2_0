@@ -7,7 +7,7 @@ const TaskList = ({ setTasks, tasks }: TaskProp) => {
   return (
     <div className="component p-4 rounded-4">
       <div className="d-flex">
-        <h2 className="w-100">Task list:</h2>
+        <h2 className="w-100 mb-1">Task list:</h2>
         <AddTaskButton setTasks={setTasks} tasks={tasks} />
       </div>
       <br />
@@ -18,7 +18,7 @@ const TaskList = ({ setTasks, tasks }: TaskProp) => {
         tasks.map((task) => (
           <div className={task.id + ' d-flex'} key={task.id}>
             <input type="checkbox" onClick={(event) => setTaskDone(task.id, setTasks, event)} />
-            <h3 className="ms-2">{task.content}</h3>
+            <h3 className="ms-2 mb-1">{task.content}</h3>
           </div>
         ))}
     </div>

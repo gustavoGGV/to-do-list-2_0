@@ -8,17 +8,33 @@ const AddGoalPopup = ({ setGoalInput, goalInput, setPopup, popup, handleClick }:
   const [isStepsRadioChecked, setIsStepsRadioChecked] = useState(false);
   const [errorList, setErrorList] = useState<string[]>([]);
 
+  // Needed to clear inputs when the goal type is changed.
+  const clearInputs = (inputType: 'money' | 'steps') => {
+    if (inputType === 'money') {
+      setGoalInput({ ...goalInput, moneyQty: null });
+
+      return;
+    }
+
+    setGoalInput({ ...goalInput, steps: null });
+  };
+
   // Needed to update the radios' selection.
   const setRadioCheck = (
     setRadioToCheck: React.Dispatch<React.SetStateAction<boolean>>,
     setRadioToUncheck: React.Dispatch<React.SetStateAction<boolean>>,
     radioToUncheck: boolean,
+    inputToClear: 'money' | 'steps',
   ) => {
     if (radioToUncheck) {
       setRadioToUncheck(false);
     }
 
     setRadioToCheck(true);
+    // Needed so the errors disappear when the goal type is changed.
+    setErrorList([]);
+
+    clearInputs(inputToClear);
   };
 
   const validateInput = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
@@ -55,7 +71,9 @@ const AddGoalPopup = ({ setGoalInput, goalInput, setPopup, popup, handleClick }:
               className="ms-2"
               type="radio"
               name="radio-button"
-              onChange={() => setRadioCheck(setIsMoneyRadioChecked, setIsStepsRadioChecked, isStepsRadioChecked)}
+              onChange={() =>
+                setRadioCheck(setIsMoneyRadioChecked, setIsStepsRadioChecked, isStepsRadioChecked, 'steps')
+              }
             />
           </div>
           <div className="radio-option">
@@ -64,13 +82,15 @@ const AddGoalPopup = ({ setGoalInput, goalInput, setPopup, popup, handleClick }:
               className="ms-2"
               type="radio"
               name="radio-button"
-              onChange={() => setRadioCheck(setIsStepsRadioChecked, setIsMoneyRadioChecked, isMoneyRadioChecked)}
+              onChange={() =>
+                setRadioCheck(setIsStepsRadioChecked, setIsMoneyRadioChecked, isMoneyRadioChecked, 'money')
+              }
             />
           </div>
         </div>
 
         {isMoneyRadioChecked && (
-          <div className="mt-3 mb-3 d-flex justify-content-center">
+          <div className="mt-3 d-flex justify-content-center">
             <p className="dollar-signal fs-4 me-1">$</p>
             <input
               className="add-input p-2 rounded-4"
@@ -86,7 +106,7 @@ const AddGoalPopup = ({ setGoalInput, goalInput, setPopup, popup, handleClick }:
         )}
 
         {isStepsRadioChecked && (
-          <div className="mt-3 mb-2 d-flex justify-content-center">
+          <div className="mt-3 d-flex justify-content-center">
             <input
               className="add-input p-2 rounded-4"
               type="number"
@@ -106,8 +126,9 @@ const AddGoalPopup = ({ setGoalInput, goalInput, setPopup, popup, handleClick }:
         >
           <i className="bi bi-x-square"></i>
         </a>
-
-        {errorList.length > 0 && errorList.map((error) => <p className="text-danger mb-1">{error}</p>)}
+        <div className="mt-3">
+          {errorList.length > 0 && errorList.map((error) => <p className="text-danger mb-1">{error}</p>)}
+        </div>
       </div>
     </div>
   );

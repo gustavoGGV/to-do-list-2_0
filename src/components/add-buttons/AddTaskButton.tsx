@@ -6,7 +6,7 @@ import type { TaskElement, TaskProp } from '../../types/Elements.types';
 
 const AddTaskButton = ({ setTasks, tasks }: TaskProp) => {
   const [popup, setPopup] = useState(false);
-  const [taskInput, setTaskInput] = useState<TaskElement>({ id: "", content: "" })
+  const [taskInput, setTaskInput] = useState<TaskElement>({ id: '', content: '' });
 
   const addTask = () => {
     const task: TaskElement = {
@@ -15,7 +15,7 @@ const AddTaskButton = ({ setTasks, tasks }: TaskProp) => {
     };
 
     setTasks([...tasks, task]);
-    setTaskInput({ id: "", content: "" });
+    setTaskInput({ id: '', content: '' });
   };
 
   const handleClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
@@ -25,7 +25,7 @@ const AddTaskButton = ({ setTasks, tasks }: TaskProp) => {
 
   return (
     <>
-      <a className="link-button float-end me-2" onClick={(event) => elementTogglePopup(setPopup, popup, event)}>
+      <a className="link-button float-end" onClick={(event) => elementTogglePopup(setPopup, popup, event)}>
         <i className="bi bi-plus-square"></i>
       </a>
 

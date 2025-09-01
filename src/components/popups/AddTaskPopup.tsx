@@ -26,7 +26,7 @@ const AddTaskPopup = ({ setTaskInput, taskInput, setPopup, popup, handleClick }:
         <br />
         <div className="d-flex">
           <input
-            className="add-input w-100 p-2 mb-3 rounded-4"
+            className="add-input w-100 p-2 rounded-4"
             type="text"
             placeholder="your task..."
             value={taskInput.content}
@@ -43,7 +43,9 @@ const AddTaskPopup = ({ setTaskInput, taskInput, setPopup, popup, handleClick }:
           <i className="bi bi-x-square"></i>
         </a>
 
-        {errorList.length > 0 && errorList.map((error) => <p className="text-danger mb-1">{error}</p>)}
+        <div className="mt-3">
+          {errorList.length > 0 && errorList.map((error) => <p className="text-danger mb-1">{error}</p>)}
+        </div>
       </div>
     </div>
   );
