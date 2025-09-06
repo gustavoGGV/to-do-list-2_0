@@ -21,7 +21,7 @@ const AddTaskPopup = ({ setTaskInput, taskInput, setPopup, popup, handleClick }:
   return (
     <div className="popup">
       <div className="overlay" onClick={(event) => elementTogglePopup(setPopup, popup, event)}></div>
-      <div className="popup-content p-3 rounded-4">
+      <div className="popup-content p-3 rounded-4 col-10 col-sm-8 col-md-6 col-lg-4">
         <h2>Add task</h2>
         <br />
         <div className="d-flex">

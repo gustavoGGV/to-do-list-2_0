@@ -137,8 +137,6 @@ h3 {
   // To adjust the popup's position.
   transform: translate(-50%, -50%);
   background-color: $component-background-color;
-  max-width: 25%;
-  min-width: 25%;
   // Needed to make it appear over the popup overlay.
   z-index: 2;
 }

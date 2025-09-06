@@ -91,8 +91,6 @@ h3 {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #520dc2;
-  max-width: 25%;
-  min-width: 25%;
   z-index: 2; }
 
 .close-popup {

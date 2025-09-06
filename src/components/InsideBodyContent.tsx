@@ -8,12 +8,14 @@ const InsideBodyContent = () => {
   const [goals, setGoals] = useState<GoalElement[]>([]);
 
   return (
-    <div className="d-flex">
-      <div className="w-50 p-5">
-        <TaskList setTasks={setTasks} tasks={tasks} />
-      </div>
-      <div className="w-50 p-5 float-end">
-        <GoalList setGoals={setGoals} goals={goals} />
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col-12 col-lg-6 p-5">
+          <TaskList setTasks={setTasks} tasks={tasks} />
+        </div>
+        <div className="col-12 col-lg-6 p-5">
+          <GoalList setGoals={setGoals} goals={goals} />
+        </div>
       </div>
     </div>
   );
