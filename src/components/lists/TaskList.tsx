@@ -14,13 +14,17 @@ const TaskList = ({ setTasks, tasks }: TaskProp) => {
 
       {tasks.length <= 0 && <h3>No tasks!</h3>}
 
-      {tasks.length > 0 &&
-        tasks.map((task) => (
+      {tasks.length > 0 && <hr />}
+
+      {tasks.map((task) => (
+        <>
           <div className={task.id + ' d-flex'} key={task.id}>
             <input type="checkbox" onClick={(event) => setTaskDone(task.id, setTasks, event)} />
             <h3 className="ms-2 mb-1">{task.content}</h3>
           </div>
-        ))}
+          <hr />
+        </>
+      ))}
     </div>
   );
 };

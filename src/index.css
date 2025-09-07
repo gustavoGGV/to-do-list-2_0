@@ -5,6 +5,12 @@
 body {
   background-image: linear-gradient(to right, #a370f7, #9ec5fe 50%, #efadce); }
 
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 5px solid #a370f7 !important; }
+
 input[type='checkbox'] {
   -webkit-appearance: none;
   appearance: none;
@@ -70,6 +76,9 @@ h3 {
   max-width: 85%;
   overflow-wrap: break-word;
   white-space: normal; }
+
+p {
+  overflow-wrap: break-word; }
 
 .popup,
 .overlay {

@@ -50,18 +50,20 @@ const GoalList = ({ setGoals, goals }: GoalProp) => {
 
       {goals.length <= 0 && <h3>No goals!</h3>}
 
-      {goals.length > 0 &&
-        goals.map((goal) => (
+      {goals.length > 0 && <hr />}
+
+      {goals.map((goal) => (
+        <>
           <div className={goal.id + ' d-flex flex-row align-items-center'} key={goal.id}>
             {goal.moneyQty && !goal.isDone && (
-              <p className="fs-4 w-25 mb-1">
+              <p className="fs-4 mb-1 col-sm-4 col-6">
                 $ <input className="money-qty-input" type="number" onChange={(event) => isGoalDone(event, goal)} /> / $
                 {goal.moneyQty}
               </p>
             )}
 
             {goal.steps && !goal.isDone && (
-              <div className="w-25 d-flex align-items-center">
+              <div className="d-flex align-items-center col-sm-4 col-6">
                 <a className="steps-btns fs-4" onClick={() => updateStepsInput(true, goal)}>
                   <i className="bi bi-plus-square"></i>
                 </a>
@@ -76,9 +78,9 @@ const GoalList = ({ setGoals, goals }: GoalProp) => {
 
             {!goal.isDone && (
               <>
-                <h3 className="ms-2 mb-1 w-50">{goal.content}</h3>
-                <div className="d-flex justify-content-end w-25">
-                  <a className="trash-can ms-2" onClick={() => deleteElement<GoalElement>(goal.id, setGoals)}>
+                <h3 className="mb-1 col-5 col-sm-7">{goal.content}</h3>
+                <div className="d-flex col-1 justify-content-end">
+                  <a className="trash-can" onClick={() => deleteElement<GoalElement>(goal.id, setGoals)}>
                     <i className="bi bi-trash-fill"></i>
                   </a>
                 </div>
@@ -91,7 +93,9 @@ const GoalList = ({ setGoals, goals }: GoalProp) => {
               </h3>
             )}
           </div>
-        ))}
+          <hr />
+        </>
+      ))}
     </div>
   );
 };

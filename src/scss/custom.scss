@@ -24,6 +24,13 @@ body {
   @include horizontal-gradient();
 }
 
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 5px solid $hover-color !important;
+}
+
 // Customizes all checkboxes.
 input[type='checkbox'] {
   // Hide default checkbox style.
@@ -110,6 +117,10 @@ h3 {
   overflow-wrap: break-word;
   // Alows line breaking.
   white-space: normal;
+}
+
+p {
+  overflow-wrap: break-word;
 }
 
 // Popup config.
